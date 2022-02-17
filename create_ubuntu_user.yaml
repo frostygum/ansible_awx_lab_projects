@@ -5,6 +5,10 @@
   become_user: root
   
   tasks:
-    - name: Hello Message
-      debug:
-        msg: "Hello World!"
+    - name: Add users | create users, shell, home dirs
+      user: 
+        name={{ item.username }} 
+        password={{ item.password }} 
+        shell=/bin/bash createhome=yes 
+        comment='Created with Ansible'
+      with_items: '{{users}}'
