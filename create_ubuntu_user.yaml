@@ -1,5 +1,10 @@
-- name: Hello World Sample
+- name: Create new user to access master node in Big Data Latihan Lab
   hosts: all
+  user: {{ ansible_ssh_user }}
+  become: yes
+  become_user: root
+  gather_fatcs: yes
+  
   tasks:
     - name: Hello Message
       debug:
