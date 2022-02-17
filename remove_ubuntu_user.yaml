@@ -1,0 +1,13 @@
+- name: Remove obselete user from accessing master node in Big Data Latihan Lab
+  hosts: all
+  user: "{{ ansible_ssh_user }}"
+  become: yes
+  become_user: root
+  
+  tasks:
+    - name: Remove users
+      user: 
+        name: "{{ item.username }}"
+        state: absent
+        remove: yes
+      with_items: "{{users}}"
