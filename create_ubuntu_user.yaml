@@ -3,7 +3,6 @@
   user: "{{ ansible_ssh_user }}"
   become: yes
   become_user: root
-  gather_fatcs: yes
   
   tasks:
     - name: Hello Message
