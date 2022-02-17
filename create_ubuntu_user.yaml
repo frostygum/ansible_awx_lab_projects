@@ -8,6 +8,7 @@
     - name: Add users | create users, shell, home dirs
       user: 
         name: "{{ item.username }}"
+        password: "{{ item.password | password_hash('sha512') }}" 
         shell: "/bin/bash createhome=yes"
         comment: "Created with Ansible"
         state: present
