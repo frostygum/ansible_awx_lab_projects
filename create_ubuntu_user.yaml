@@ -17,7 +17,7 @@
         state: present
       with_items: "{{users}}"
 
-  - name: Copy .bashrc among users
+  - name: Copy default bashrc among users
     copy:
       src: ./conf/.bashrc
       dest: "/home/{{ item.username }}/"
