@@ -17,10 +17,10 @@
         state: present
       with_items: "{{users}}"
 
-  - name: Copy default bashrc among users
-    copy:
-      src: ./conf/.bashrc
-      dest: "/home/{{ item.username }}/"
-      owner: "{{ item.username }}"
-      group: "{{ item.username }}"
-    with_items: "{{users}}"
+    - name: Copy default bashrc among users
+      copy:
+        src: ./conf/.bashrc
+        dest: "/home/{{ item.username }}/"
+        owner: "{{ item.username }}"
+        group: "{{ item.username }}"
+      with_items: "{{users}}"
